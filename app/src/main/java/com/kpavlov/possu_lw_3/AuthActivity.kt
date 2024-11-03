@@ -17,7 +17,6 @@ class AuthActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_auth)
 
-        val userRepository = UserRepository(this)
         val util = Util()
         val userLogin: EditText = findViewById(R.id.user_login_auth)
         val userPass: EditText = findViewById(R.id.user_pass_auth)
@@ -45,7 +44,8 @@ class AuthActivity : AppCompatActivity() {
             if (login == "" || pass == "")
                 Toast.makeText(this, "You have empty fields.", Toast.LENGTH_LONG).show()
             else {
-                val isAuth = userRepository.getUser(login, util.hashValue(pass))
+                val db = DbHelper(this, null)
+                val isAuth = db.getUser(login, util.hashValue(pass))
 
                 if (isAuth) {
                     Toast.makeText(this, "User $login is authorized", Toast.LENGTH_LONG).show()

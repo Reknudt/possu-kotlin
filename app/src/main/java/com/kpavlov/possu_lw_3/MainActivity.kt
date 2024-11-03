@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userRepository = UserRepository(this)
         val util = Util()
         val userLogin: EditText = findViewById(R.id.user_login)
         val userEmail: EditText = findViewById(R.id.user_email)
@@ -65,7 +64,8 @@ class MainActivity : AppCompatActivity() {
 
                 val user = User(login, email, hashedPassword, phone)
 
-                userRepository.addUser(user)
+                val db = DbHelper(this, null)
+                db.addUser(user)
                 Toast.makeText(this, "User $login added", Toast.LENGTH_LONG).show()
 
                 userLogin.text.clear()
