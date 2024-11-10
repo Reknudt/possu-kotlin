@@ -38,5 +38,13 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
 
         return res.moveToFirst()
     }
-
+//
+//    fun getAllUsers(): ArrayList<User>() {
+//        val db = this.readableDatabase
+//
+//        val res = arrayListOf<User>()
+//        res = db.rawQuery("SELECT * FROM users", null)
+//
+//        return res
+//    }
 }

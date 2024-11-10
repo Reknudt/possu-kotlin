@@ -7,12 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.accessibility.AccessibilityManagerCompat.TouchExplorationStateChangeListener
-import java.security.MessageDigest
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -39,6 +34,10 @@ class MainActivity : AppCompatActivity() {
             val pass = userPass.text.toString().trim()
             val phone = userPhone.text.toString().trim()
 
+            if(login == "" || email == "" || pass == "" || phone == "")
+                Toast.makeText(this, "You have empty fields.", Toast.LENGTH_LONG).show()
+            else {
+
             if (!email.matches(util.emailPattern)) {
                 Toast.makeText(this, "Invalid email format.", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
@@ -55,10 +54,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Invalid phone format.", Toast.LENGTH_LONG).show()
             return@setOnClickListener
             }
-
-            if(login == "" || email == "" || pass == "" || phone == "")
-                Toast.makeText(this, "You have empty fields.", Toast.LENGTH_LONG).show()
-            else {
 
                 val hashedPassword = util.hashValue(pass)
 

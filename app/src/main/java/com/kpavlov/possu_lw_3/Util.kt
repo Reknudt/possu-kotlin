@@ -14,7 +14,7 @@ class Util {
     val loginPattern = Regex(REG_EX_LOGIN)
     val phonePattern = Regex(REG_EX_PHONE)
 
-    public fun hashValue(value: String): String {
+    fun hashValue(value: String): String {
         val digest = MessageDigest.getInstance("SHA-256")
         val hashedBytes = digest.digest(value.toByteArray())
         return hashedBytes.joinToString("") { "%02x".format(it) }
