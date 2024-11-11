@@ -69,7 +69,6 @@
         android:textColor="#fdfdfd"
         android:layout_gravity="center"/>
 
-
     <Button
         android:id="@+id/button_reg"
         android:layout_width="220dp"

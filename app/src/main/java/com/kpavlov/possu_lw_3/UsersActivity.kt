@@ -6,23 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemsActivity : AppCompatActivity() {
+class UsersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_users)
 
         val usersListView: RecyclerView = findViewById(R.id.usersList)
-        val usersList = arrayListOf<User>()
+        val usersList = arrayListOf<UserInfo>()
 
-        usersList.add(User("Alex", "alex@mail.com", "123456passP!", "+375291341341"))
-        usersList.add(User("Bob", "bob@mail.com", "qwertyQ1#", "+375291111112"))
-        usersList.add(User("John", "john@mail.com", "johnyPASS123*", "+375291111113"))
+        usersList.add(UserInfo(1, "sofa", "Alex", "Height, weight, wealth, married/not married", "alexsamrydir@gmail.com", "+375291341341", "123456passP!"))
+        usersList.add(UserInfo(2, "light", "Bob", "Height, weight, wealth, married/not married", "bob@mail.com", "+375291111112", "qwertyQ1#"))
+        usersList.add(UserInfo(3, "kitchen", "John", "Height, weight, wealth, married/not married", "john@mail.com", "+375291111113", "johnyPASS123*"))
 
         usersListView.layoutManager = LinearLayoutManager(this)
-//        val db = DbHelper(this, null)
-//
-//        usersList = db.getAllUsers()
         usersListView.adapter = UsersAdapter(usersList, this)
     }
 }
