@@ -1,4 +1,4 @@
-package com.kpavlov.possu_lw_3
+package com.example.possu_lw_3
 
 import android.content.ContentValues
 import android.content.Context
@@ -37,6 +37,14 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         val res = db.rawQuery("SELECT * FROM users WHERE login = '$login' AND pass = '$pass'", null)
 
         return res.moveToFirst()
+    }
+
+    fun deleteUser(login: String): Boolean {
+        val db = this.writableDatabase
+
+        val affectedRows = db.delete("users", "login = ?", arrayOf(login))
+        db.close()
+        return affectedRows > 0
     }
 
 }

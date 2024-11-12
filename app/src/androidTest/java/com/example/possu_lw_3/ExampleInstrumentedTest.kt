@@ -1,4 +1,4 @@
-package com.kpavlov.possu_lw_3
+package com.example.possu_lw_3
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

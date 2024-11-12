@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.kpavlov.possu_lw_3"
+    namespace = "com.example.possu_lw_3"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.kpavlov.possu_lw_3"
+        applicationId = "com.example.possu_lw_3"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
