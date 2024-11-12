@@ -1,4 +1,4 @@
-package com.kpavlov.possu_lw_3
+package com.example.possu_lw_3
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.possu_lw_3.R
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

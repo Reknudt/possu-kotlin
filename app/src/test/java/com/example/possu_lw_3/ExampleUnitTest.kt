@@ -1,4 +1,4 @@
-package com.kpavlov.possu_lw_3
+package com.example.possu_lw_3
 
 import org.junit.Test
 

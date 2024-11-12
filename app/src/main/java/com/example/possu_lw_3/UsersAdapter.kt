@@ -1,4 +1,4 @@
-package com.kpavlov.possu_lw_3
+package com.example.possu_lw_3
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.possu_lw_3.R
 
 class UsersAdapter(var users: List<User>, var contex: Context) : RecyclerView.Adapter<UsersAdapter.MyViewHolder>() {
 
