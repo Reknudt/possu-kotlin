@@ -46,5 +46,4 @@ class DbHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory?)
         db.close()
         return affectedRows > 0
     }
-
 }

@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.possu_lw_3.R
+
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,7 @@ class AuthActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
 
         buttonSwitch.setOnClickListener {
             val login = userLogin.text.toString().trim()
@@ -48,9 +51,14 @@ class AuthActivity : AppCompatActivity() {
 
                 if (isAuth) {
                     Toast.makeText(this, "User $login is authorized", Toast.LENGTH_LONG).show()
+
+                    userLogin.text.clear()
+                    userPass.text.clear()
+
+                    val intent = Intent(this, ItemsActivity::class.java)
+                    startActivity(intent)
                 } else
                     Toast.makeText(this, "User $login is not authorized", Toast.LENGTH_LONG).show()
-
 
                 userLogin.text.clear()
                 userPass.text.clear()

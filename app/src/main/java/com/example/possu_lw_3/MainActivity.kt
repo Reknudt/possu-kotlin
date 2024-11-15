@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.possu_lw_3.R
+
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -51,10 +53,10 @@ class MainActivity : AppCompatActivity() {
             return@setOnClickListener
             }
 
+
             if(login == "" || email == "" || pass == "" || phone == "")
                 Toast.makeText(this, "You have empty fields.", Toast.LENGTH_LONG).show()
             else {
-
                 val hashedPassword = util.hashValue(pass)
 
                 val user = User(login, email, hashedPassword, phone)
@@ -70,5 +72,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
