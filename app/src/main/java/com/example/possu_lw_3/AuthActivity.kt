@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.possu_lw_3.R
 
+
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,15 +20,17 @@ class AuthActivity : AppCompatActivity() {
         val util = Util()
         val userLogin: EditText = findViewById(R.id.user_login_auth)
         val userPass: EditText = findViewById(R.id.user_pass_auth)
-        val button: Button = findViewById(R.id.button_auth)
+        val buttonSwitch: Button = findViewById(R.id.button_auth)
         val linkToReg: TextView = findViewById(R.id.link_to_reg)
+        val buttonDelete: Button = findViewById(R.id.button_del)
 
         linkToReg.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        button.setOnClickListener {
+
+        buttonSwitch.setOnClickListener {
             val login = userLogin.text.toString().trim()
             val pass = userPass.text.toString().trim()
 
@@ -56,6 +59,27 @@ class AuthActivity : AppCompatActivity() {
                     startActivity(intent)
                 } else
                     Toast.makeText(this, "User $login is not authorized", Toast.LENGTH_LONG).show()
+
+                userLogin.text.clear()
+                userPass.text.clear()
+            }
+        }
+
+        buttonDelete.setOnClickListener {
+            val login = userLogin.text.toString().trim()
+
+            if (login.isEmpty()) {
+                Toast.makeText(this, "Введите логин", Toast.LENGTH_LONG).show()
+            } else {
+                val db = DbHelper(this, null)
+                val isDeleted = db.deleteUser(login)
+
+                if (isDeleted) {
+                    Toast.makeText(this, "Пользователь $login удален", Toast.LENGTH_LONG).show()
+                    userLogin.text.clear()
+                } else {
+                    Toast.makeText(this, "Пользователь $login не найден", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
